@@ -26,6 +26,10 @@
 			--empty-image-size: 6rem;
 		}
 
+		img {
+			max-width: 100%;
+		}
+
 		img:not([src]) {
 			width: var(--empty-image-size);
 			height: var(--empty-image-size);
@@ -38,7 +42,6 @@
 		const image = document.querySelector('[data-image]')
 
 		document.addEventListener('paste', event => {
-			/* TODO: Print pasted images to the page */
 			const file = event.clipboardData.files[0]
 			const reader = new FileReader()
 
