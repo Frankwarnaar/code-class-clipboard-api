@@ -1,7 +1,7 @@
 {
-  "name": "code-class-template",
+  "name": "code-class-clipboard-api",
   "version": "1.0.0",
-  "description": "Templates for Code Classes at De Voorhoede",
+  "description": "Code class about the clipboard api at De Voorhoede",
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf static/ && mkdirp static/",

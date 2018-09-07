@@ -1,13 +1,13 @@
-# Code Class History API
+# Code Class Clipboard API
 
-Code Class about the History API. It details the different functionality, like navigating through history, adding items to the history and watching for events when navigation through history.
+Code Class about the Clipboard API.
 
 ## Getting started
 
 This project is hosted as a Voorhoede GIT repository. Clone it:
 
 ``` bash
-$ git clone git@github.com:voorhoede/code-class-history
+$ git@github.com:Frankwarnaar/code-class-clipboard-api.git
 ```
 
 Install dependencies:
