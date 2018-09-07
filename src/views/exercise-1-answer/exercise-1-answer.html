@@ -1,0 +1,70 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+	<nav class="cc-navigation">
+		<a href="/exercise-1" class="cc-back-link">← back to exercise 1</a>
+	</nav>
+{% endblock %}
+
+{% block introduction %}
+	<h1>Copy to clipboard</h1>
+
+	<p>Use the clipboard API to copy the content of the input on click on the button</p>
+{% endblock %}
+
+{% block html %}
+	<section class="cc-html-playground">
+		<div class="cc-content">
+			<div class="copy-to-clipboard">
+				<input class="copy-to-clipboard__input" readonly type="text" data-input value="Copy this content"/>
+				<button class="copy-to-clipboard__button" data-button>Copy</button>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+{% block styles %}
+	<style type="text/css">
+		:root {
+			--border: 1px solid #b3b3b3;
+		}
+
+		.copy-to-clipboard {
+			display: flex;
+			max-width: 20em;
+			border: var(--border);
+		}
+
+		.copy-to-clipboard__input {
+			flex-grow: 1;
+			width: auto;
+			border: none;
+		}
+
+		.copy-to-clipboard__button {
+			border: none;
+			border-left: var(--border);
+		}
+	</style>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		const input = document.querySelector('[data-input]')
+		const button = document.querySelector('[data-button]')
+
+		button.addEventListener('click', () => {
+			navigator.clipboard.writeText(input.value)
+				.then(
+					/* Success */
+					() => {
+						button.textContent = 'Copied!'
+					},
+					/* Failure */
+					() => {
+						button.textContent = 'Failed!'
+					}
+				)
+		})
+	</script>
+{% endblock %}
