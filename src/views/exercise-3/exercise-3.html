@@ -1,0 +1,45 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+	<nav class="cc-navigation">
+		<a href="/" class="cc-back-link">← back to overview</a>
+		<a href="/exercise-3-answer" class="cc-answer-link">see answer →</a>
+	</nav>
+{% endblock %}
+
+{% block introduction %}
+	<h1>Paste images</h1>
+
+	<p>Print a pasted image to the page</p>
+{% endblock %}
+
+{% block html %}
+	<section class="cc-html-playground">
+		<div class="cc-content">
+			<img data-image/>
+		</div>
+	</section>
+{% endblock %}
+
+{% block styles %}
+	<style type="text/css">
+		:root {
+			--empty-image-size: 6rem;
+		}
+
+		img:not([src]) {
+			width: var(--empty-image-size);
+			height: var(--empty-image-size);
+		}
+	</style>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		const image = document.querySelector('[data-image]')
+
+		document.addEventListener('paste', event => {
+			/* TODO: Print a pasted image to the page */
+		})
+	</script>
+{% endblock %}

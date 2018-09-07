@@ -1,0 +1,53 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+	<nav class="cc-navigation">
+		<a href="/exercise-3" class="cc-back-link">← back to exercise</a>
+	</nav>
+{% endblock %}
+
+{% block introduction %}
+	<h1>Paste images</h1>
+
+	<p>Show images that are pasted to the page</p>
+{% endblock %}
+
+{% block html %}
+	<section class="cc-html-playground">
+		<div class="cc-content">
+			<img data-image/>
+		</div>
+	</section>
+{% endblock %}
+
+{% block styles %}
+	<style type="text/css">
+		:root {
+			--empty-image-size: 6rem;
+		}
+
+		img:not([src]) {
+			width: var(--empty-image-size);
+			height: var(--empty-image-size);
+		}
+	</style>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		const image = document.querySelector('[data-image]')
+
+		document.addEventListener('paste', event => {
+			/* TODO: Print pasted images to the page */
+			const file = event.clipboardData.files[0]
+			const reader = new FileReader()
+
+			if (!file || !file.type.includes('image')) return
+
+			reader.addEventListener('loadend', () => {
+				image.src = reader.result
+			})
+			reader.readAsDataURL(file)
+		})
+	</script>
+{% endblock %}
