@@ -1,0 +1,61 @@
+{% extends "views/_base/base.html" %}
+
+{% block navigation %}
+	<nav class="cc-navigation">
+		<a href="/exercise-2" class="cc-back-link">← back to exercise 2</a>
+	</nav>
+{% endblock %}
+
+{% block introduction %}
+	<h1>Copy to clipboard</h1>
+
+	<p>Use the clipboard API to read from the clipboard and write it to the textarea value on click on the button</p>
+{% endblock %}
+
+{% block html %}
+	<section class="cc-html-playground">
+		<div class="cc-content">
+			<div class="copy-to-clipboard">
+				<textarea class="copy-to-clipboard__textarea" data-textarea></textarea/>
+				<button class="copy-to-clipboard__button" data-button>Read</button>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+{% block styles %}
+	<style type="text/css">
+		:root {
+			--border: 1px solid #b3b3b3;
+		}
+
+		.copy-to-clipboard {
+			display: flex;
+			border: var(--border);
+		}
+
+		.copy-to-clipboard__textarea {
+			flex-grow: 1;
+			width: auto;
+			border: none;
+		}
+
+		.copy-to-clipboard__button {
+			border: none;
+			border-left: var(--border);
+		}
+	</style>
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		const textarea = document.querySelector('[data-textarea]')
+		const button = document.querySelector('[data-button]')
+
+		button.addEventListener('click', () => {
+			navigator.clipboard.readText()
+				.then(text => textarea.innerHTML = text)
+				.catch(error => console.error(`Failed to read clipboard contents: ${error}`))
+		})
+	</script>
+{% endblock %}
