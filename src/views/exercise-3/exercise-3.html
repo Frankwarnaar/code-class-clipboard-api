@@ -43,7 +43,11 @@
 		const image = document.querySelector('[data-image]')
 
 		document.addEventListener('paste', event => {
-			/* TODO: Print a pasted image to the page */
+			const reader = new FileReader()
+			/*
+			 * TODO: Print a pasted image to the page,
+			 * using the fileread and the ClipboardEvent.clipboardData api
+			 */
 		})
 	</script>
 {% endblock %}

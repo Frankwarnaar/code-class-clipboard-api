@@ -51,6 +51,14 @@
 
 {% block scripts %}
 	<script>
-		/* TODO: Write script to copy the value of the input on click on the button */
+		const input = document.querySelector('[data-input]')
+		const button = document.querySelector('[data-button]')
+
+		button.addEventListener('click', () => {
+			/*
+			 * TODO: Write script to copy the value of the input on click on the button,
+			 * using the clipboard api
+			 */
+		})
 	</script>
 {% endblock %}

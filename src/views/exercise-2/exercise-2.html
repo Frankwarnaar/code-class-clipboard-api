@@ -50,6 +50,15 @@
 
 {% block scripts %}
 	<script>
-		/* TODO: Write to clipboard contents to the input on click on the button */
+		const textarea = document.querySelector('[data-textarea]')
+		const button = document.querySelector('[data-button]')
+
+		button.addEventListener('click', () => {
+			/*
+			 * TODO: Write to clipboard contents to the input on click on the button,
+			 * using the clipboard api
+			 */
+		})
+
 	</script>
 {% endblock %}
